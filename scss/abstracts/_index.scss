@@ -1,0 +1,4 @@
+// Lets other partials load everything with: @use "../abstracts" as *;
+@forward "variables";
+@forward "mixins";
+@forward "placeholders";

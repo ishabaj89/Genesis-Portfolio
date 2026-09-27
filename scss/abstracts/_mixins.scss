@@ -1,0 +1,40 @@
+// =========================================================
+// Mixins — reusable chunks of CSS
+// =========================================================
+@use "sass:map";
+@use "variables" as *;
+
+// Media query: @include respond(md) { ... }
+@mixin respond($breakpoint) {
+  @media (max-width: map.get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// Flexbox shortcut: @include flex(space-between, center, 30px);
+@mixin flex($justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+// Text shortcut: @include text(18px, 1, $fw-bold);
+@mixin text($size, $line-height: normal, $weight: $fw-regular) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+}
+
+// Hide visually but keep for screen readers
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

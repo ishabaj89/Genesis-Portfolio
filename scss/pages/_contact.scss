@@ -1,0 +1,50 @@
+// =========================================================
+// CONTACT page (contact.html) — Figma frame 1360 × 1375
+// =========================================================
+@use "../abstracts" as *;
+
+.contact {
+  @include flex(space-between, flex-start, 60px);
+  margin-top: 110px;
+
+  &__content {
+    max-width: 475px;
+  }
+
+  &__text {
+    max-width: 445px;
+    margin-top: 32px;
+  }
+
+  &__form {
+    flex: 0 1 475px;
+    margin-top: 21px;
+  }
+
+  @include respond(md) {
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 60px;
+
+    &__form {
+      flex-basis: auto;
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+}
+
+// ---------- Map ----------
+.map {
+  height: 570px;
+  margin-top: 120px;
+
+  img {
+    @extend %cover-image;
+  }
+
+  @include respond(md) {
+    height: 320px;
+    margin-top: 60px;
+  }
+}

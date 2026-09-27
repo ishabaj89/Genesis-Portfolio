@@ -1,0 +1,43 @@
+// =========================================================
+// Header + main navigation (Figma "Menu", 61px from top)
+// =========================================================
+@use "../abstracts" as *;
+
+.header {
+  @include flex(space-between, center);
+  padding-top: 61px;
+
+  @include respond(md) {
+    padding-top: 30px;
+  }
+
+  &__logo {
+    display: block;
+    @extend %fade-on-hover;
+  }
+}
+
+// Used in the header AND the footer
+.nav {
+  &__list {
+    @include flex(flex-start, center, 30px);
+  }
+
+  &__link {
+    display: block;
+    @include text($fs-large, 1, $fw-bold);
+    letter-spacing: -0.35px;
+    padding: 2px 0;
+    transition: color $transition;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-primary;
+    }
+
+    // The page you are on
+    &--active {
+      color: $color-primary;
+    }
+  }
+}

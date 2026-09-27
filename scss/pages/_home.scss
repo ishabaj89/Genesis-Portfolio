@@ -1,0 +1,268 @@
+// =========================================================
+// HOME page (index.html) — Figma frame "Home" 1360 × 3840
+// =========================================================
+@use "../abstracts" as *;
+
+// ---------- Hero ----------
+.hero {
+  display: grid;
+  grid-template-columns: 635px auto;
+  column-gap: 190px;
+  align-items: end;
+  margin-top: 96px;
+
+  &__eyebrow {
+    margin-bottom: 32px;
+    color: $color-primary;
+    @include text($fs-h3, 28px, $fw-bold);
+    letter-spacing: -0.42px;
+  }
+
+  &__title {
+    line-height: 60px;
+  }
+
+  &__highlight {
+    color: $color-primary;
+  }
+
+  &__quote {
+    position: relative;
+    width: max-content;
+    margin-bottom: 11px;
+    padding-top: 13px;
+    font-style: italic;
+    @include text($fs-large, 1);
+    color: rgba($color-text, 0.6);
+
+    // Short 30px line above the quote
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: rgba($color-text, 0.5);
+    }
+  }
+
+  @include respond(lg) {
+    grid-template-columns: minmax(0, 635px) auto;
+    column-gap: 60px;
+  }
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+    margin-top: 60px;
+
+    &__title {
+      line-height: 42px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+}
+
+// ---------- Projects (masonry: 3 columns, 30px apart, 20px between images) ----------
+.projects {
+  margin-top: 156px;
+
+  &__grid {
+    @include flex(space-between, flex-start, 30px);
+  }
+
+  &__column {
+    flex: 1;
+    @include flex(flex-start, stretch, 20px);
+    flex-direction: column;
+  }
+
+  &__item {
+    display: block;
+    overflow: hidden;
+
+    img {
+      @extend %cover-image;
+      transition: transform 0.6s ease, opacity $transition;
+    }
+
+    &:hover img,
+    &:focus-visible img {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    // Creates .projects__item--s, --m, --l, --xl, --xxl from the map
+    @each $name, $height in $project-heights {
+      &--#{$name} {
+        height: $height;
+      }
+    }
+  }
+
+  @include respond(lg) {
+    margin-top: 100px;
+  }
+
+  @include respond(md) {
+    margin-top: 60px;
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    &__column {
+      display: contents;
+    }
+
+    &__item[class*="--"] {
+      height: 280px;
+    }
+  }
+
+  @include respond(sm) {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__item[class*="--"] {
+      height: 360px;
+    }
+  }
+}
+
+// ---------- Services ----------
+.services {
+  display: grid;
+  grid-template-columns: 635px 1fr;
+  column-gap: 95px;
+  margin-top: 90px;
+
+  &__intro {
+    @include text($fs-h2, 38px, $fw-bold);
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 220px);
+    row-gap: 10px;
+    padding-top: 8px;
+  }
+
+  &__item {
+    @include text($fs-large, 23px);
+    color: rgba($color-text, 0.6);
+  }
+
+  @include respond(lg) {
+    grid-template-columns: minmax(0, 635px) auto;
+    column-gap: 60px;
+
+    &__list {
+      grid-template-columns: repeat(2, auto);
+      column-gap: 40px;
+    }
+  }
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+    margin-top: 60px;
+
+    &__intro {
+      font-size: 22px;
+      line-height: 32px;
+    }
+  }
+}
+
+// ---------- Awards ----------
+.awards {
+  margin-top: 94px;
+  border-bottom: 2px solid $color-divider;
+
+  @include respond(md) {
+    margin-top: 60px;
+  }
+}
+
+.award {
+  display: grid;
+  grid-template-columns: 475px 1fr;
+  padding: 48px 0 57px;
+  border-top: 2px solid $color-divider;
+
+  &__name {
+    @include text($fs-h3, 28px, $fw-bold);
+  }
+
+  &__list {
+    display: grid;
+    row-gap: 80px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 285px 190px 1fr;
+    align-items: start;
+  }
+
+  &__category {
+    @include text($fs-large, 23px, $fw-bold);
+  }
+
+  &__project {
+    @include text($fs-base, 20px);
+    padding-top: 3px;
+  }
+
+  &__description {
+    margin-top: 12px;
+    color: rgba($color-text, 0.6);
+  }
+
+  &__year {
+    justify-self: end;
+    padding-top: 3px;
+    @include text($fs-base, 20px);
+  }
+
+  @include respond(lg) {
+    grid-template-columns: 1fr 2fr;
+
+    &__row {
+      grid-template-columns: 1fr 190px auto;
+      column-gap: 20px;
+    }
+  }
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+    padding: 40px 0;
+
+    &__list {
+      row-gap: 40px;
+    }
+
+    &__row {
+      grid-template-columns: 1fr auto;
+      row-gap: 10px;
+    }
+
+    &__category {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+// ---------- Page-specific footer spacing ----------
+.page--home .footer {
+  margin-top: 109px;
+}

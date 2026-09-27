@@ -1,0 +1,25 @@
+{
+  "name": "genesis-portfolio",
+  "version": "1.0.0",
+  "description": "Genesis portfolio — 3-page website recreated from Figma, styled with Sass",
+  "scripts": {
+    "build:sass": "sass scss/style.scss css/style.css",
+    "build:css": "postcss css/style.css -o css/style.min.css --map",
+    "build": "run-s build:sass build:css",
+    "watch:sass": "sass --watch scss/style.scss css/style.css",
+    "watch:css": "postcss css/style.css -o css/style.min.css --map --watch",
+    "sass": "run-s build && run-p watch:sass watch:css"
+  },
+  "browserslist": [
+    "> 2%",
+    "not dead"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.6.1",
+    "cssnano": "^8.0.10",
+    "npm-run-all2": "^8.0.4",
+    "postcss": "^8.5.28",
+    "postcss-cli": "^12.0.0",
+    "sass": "^1.80.0"
+  }
+}

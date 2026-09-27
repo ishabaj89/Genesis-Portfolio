@@ -1,0 +1,47 @@
+// =========================================================
+// Variables — every value here comes from the Figma file
+// =========================================================
+
+// ---------- Colours ----------
+$color-text: #111111;       // all headings and text
+$color-primary: #4a4ff2;    // "Shooting Stars", "product designer", Submit button
+$color-white: #ffffff;      // page background
+$color-divider: #d8d8d8;    // 2px award dividers
+$color-line: #e0e0e0;       // 1px lines under details + form fields (#979797 at 30%)
+
+// ---------- Typography ----------
+$font-family: "Mulish", Arial, sans-serif;
+$fw-regular: 400;
+$fw-bold: 700;
+
+// Font sizes used in the design
+$fs-h1: 40px;     // page titles
+$fs-h2: 28px;     // services intro
+$fs-h3: 22px;     // "Shooting Stars", award names
+$fs-large: 18px;  // menu, details, services, quote
+$fs-base: 16px;   // body text, form, button
+
+// ---------- Layout ----------
+$frame-width: 1360px;       // Figma frame width
+$side-margin: 125px;        // Figma margin on each side
+$container-width: $frame-width - $side-margin * 2; // = 1110px, calculated by Sass
+$gutter: 20px;              // side padding on smaller screens
+
+// ---------- Breakpoints ----------
+$breakpoints: (
+  lg: 1150px,
+  md: 768px,
+  sm: 480px,
+);
+
+// ---------- Project image heights (Home page masonry grid) ----------
+$project-heights: (
+  s: 351px,
+  m: 413px,
+  l: 475px,
+  xl: 537px,
+  xxl: 599px,
+);
+
+// ---------- Motion ----------
+$transition: 0.3s ease;

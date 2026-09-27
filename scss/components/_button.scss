@@ -1,0 +1,24 @@
+// =========================================================
+// Button (Figma "Submit": 125 × 50, #4A4FF2)
+// =========================================================
+@use "sass:color";
+@use "../abstracts" as *;
+
+.button {
+  display: inline-block;
+  min-width: 125px;
+  height: 50px;
+  padding: 0 30px;
+  border: none;
+  background-color: $color-primary;
+  color: $color-white;
+  @include text($fs-base, 50px, $fw-bold);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color $transition;
+
+  &:hover,
+  &:focus-visible {
+    background-color: color.adjust($color-primary, $lightness: -10%);
+  }
+}

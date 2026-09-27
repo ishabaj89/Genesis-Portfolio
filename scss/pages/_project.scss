@@ -1,0 +1,110 @@
+// =========================================================
+// PROJECT DETAILS page (project.html) — Figma frame 1360 × 2068
+// =========================================================
+@use "../abstracts" as *;
+
+// ---------- Intro: title + text left, details list right ----------
+.project-intro {
+  @include flex(space-between, flex-start, 60px);
+  margin-top: 110px;
+
+  &__content {
+    max-width: 635px;
+  }
+
+  &__title {
+    max-width: 475px;
+  }
+
+  &__text {
+    margin-top: 39px;
+
+    p + p {
+      margin-top: 26px;
+    }
+  }
+
+  @include respond(md) {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 60px;
+  }
+}
+
+// ---------- Details list (Project / Design / Client ...) ----------
+.details {
+  flex: 0 0 335px;
+  margin-top: 28px;
+
+  &__row {
+    display: grid;
+    grid-template-columns: 137px 1fr;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid $color-line;
+    @include text($fs-large, 23px, $fw-bold);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    color: rgba($color-text, 0.5);
+  }
+
+  @include respond(md) {
+    flex-basis: auto;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+// ---------- Big image ----------
+.project-hero {
+  height: 660px;
+  margin-top: 61px;
+
+  img {
+    @extend %cover-image;
+  }
+
+  @include respond(md) {
+    height: 360px;
+    margin-top: 40px;
+  }
+}
+
+// ---------- Long paragraph ----------
+.project-text {
+  margin-top: 45px;
+}
+
+// ---------- Three images ----------
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+
+  &__item {
+    height: 400px;
+
+    img {
+      @extend %cover-image;
+    }
+  }
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    &__item {
+      height: 320px;
+    }
+  }
+}
+
+.page--project .footer {
+  margin-top: 132px;
+}

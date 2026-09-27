@@ -1,0 +1,24 @@
+// =========================================================
+// Genesis Portfolio — main Sass file
+// Compiles to css/style.css
+// Order: abstracts (no CSS output) → base → layout → components → pages
+// =========================================================
+
+// Base
+@use "base/reset";
+@use "base/typography";
+
+// Layout
+@use "layout/container";
+@use "layout/header";
+@use "layout/footer";
+
+// Components
+@use "components/button";
+@use "components/form";
+@use "components/social";
+
+// Pages
+@use "pages/home";
+@use "pages/project";
+@use "pages/contact";

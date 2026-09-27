@@ -1,0 +1,23 @@
+// =========================================================
+// Placeholder selectors — shared styles used with @extend
+// They only appear in the CSS if a selector extends them.
+// =========================================================
+@use "variables" as *;
+
+// Image that fills its box (Figma "Fill" mode)
+%cover-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Links that fade a little on hover (logo, social icons)
+%fade-on-hover {
+  transition: opacity $transition;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.6;
+  }
+}

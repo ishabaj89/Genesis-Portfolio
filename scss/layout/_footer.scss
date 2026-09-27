@@ -1,0 +1,27 @@
+// =========================================================
+// Footer — logo left; links + social icons right
+// =========================================================
+@use "../abstracts" as *;
+
+.footer {
+  @include flex(space-between, center);
+  margin-top: 110px;
+  padding-bottom: 47px;
+
+  &__right {
+    @include flex(flex-end, center, 95px);
+  }
+
+  @include respond(md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 80px;
+
+    &__right {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+    }
+  }
+}

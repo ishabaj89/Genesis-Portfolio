@@ -1,0 +1,13 @@
+// =========================================================
+// Social icons (Dribbble, Instagram, Twitter)
+// =========================================================
+@use "../abstracts" as *;
+
+.social {
+  @include flex(flex-start, center, 24px);
+
+  &__link {
+    display: block;
+    @extend %fade-on-hover;
+  }
+}

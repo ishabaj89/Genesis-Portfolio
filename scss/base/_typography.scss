@@ -1,0 +1,32 @@
+// =========================================================
+// Base typography
+// =========================================================
+@use "../abstracts" as *;
+
+body {
+  background-color: $color-white;
+  color: $color-text;
+  font-family: $font-family;
+  @include text($fs-base, 26px);
+  -webkit-font-smoothing: antialiased;
+}
+
+// Big page title (Figma: Mulish Bold 40)
+.title {
+  @include text($fs-h1, 55px, $fw-bold);
+
+  @include respond(md) {
+    font-size: 30px;
+    line-height: 42px;
+  }
+}
+
+// Body paragraph (Figma: Mulish Regular 16 / 26, 80% opacity)
+.text {
+  @include text($fs-base, 26px);
+  color: rgba($color-text, 0.8);
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
